@@ -72,7 +72,16 @@
  */
 
 function countNodes(root: TreeNode | null): number {
-
+    if (!root) return 0
+    const arr = [root];
+    let res = 0;
+    while (arr.length > 0) {
+        const temp = arr.shift();
+        res++;
+        temp.left && arr.push(temp.left);
+        temp.right && arr.push(temp.right);
+    }
+    return res
 };
 // @lc code=end
 
